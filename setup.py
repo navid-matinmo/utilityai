@@ -11,5 +11,5 @@ setup(
     author='Navid Matin Moghaddam',
     author_email='navid.matinmo@gmail.com',
     description='UtilityAI package for python',
-    url='https://github.com/your_username/your_package',
+    url='https://github.com/navid-matinmo/utilityai',
 )
