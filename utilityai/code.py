@@ -1,5 +1,5 @@
 # function input output names
-from utilityai_2.core import infer
+from utilityai.core import infer
 import ast
 import traceback
 import time
