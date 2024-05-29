@@ -1,4 +1,4 @@
-from utilityai_2.core import infer
+from utilityai.core import infer
 import inspect
 from typing import Callable, Any, Optional
 
