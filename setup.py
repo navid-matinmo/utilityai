@@ -1,11 +1,24 @@
 from setuptools import setup, find_packages
-from setuptools.command.install import install
-import subprocess
 
-class PostInstallCommand(install):
-    def run(self):
-        install.run(self)
-        subprocess.call(['huggingface-cli', 'download', 'microsoft/Phi-3-mini-4k-instruct-onnx', 'cpu_and_mobile/cpu-int4-rtn-block-32-acc-level-4/phi3-mini-4k-instruct-cpu-int4-rtn-block-32-acc-level-4.onnx', '--local-dir', './sth'])
+def download_model():
+    from huggingface_hub import hf_hub_download
+    import json
+    local_dir = "utilityai/model"
+
+    info_repo_id = "navid-matinmo/utilityai"
+    info_filename = "info.json"
+    hf_hub_download(repo_id=info_repo_id, filename=info_filename, local_dir=local_dir, use_auth_token="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")
+
+
+    file_path = 'utilityai/model/info.json'
+    with open(file_path, 'r') as file:
+        info = json.load(file)
+
+    repo_id = info["repo_id"]
+    filenames = info["filenames"]
+    for filename in filenames:
+        hf_hub_download(repo_id=repo_id, filename=filename, local_dir=local_dir, use_auth_token="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")
+download_model()
 
 setup(
     name='utilityai',
@@ -14,7 +27,7 @@ setup(
     install_requires=[
         'onnxruntime-genai==0.2.0rc7',
         'numpy',
-        'huggingface_hub[cli]'
+        'huggingface_hub'
     ],
     author='Navid Matin Moghaddam',
     author_email='navid.matinmo@gmail.com',
