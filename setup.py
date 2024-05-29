@@ -18,7 +18,6 @@ def download_model():
     filenames = info["filenames"]
     for filename in filenames:
         hf_hub_download(repo_id=repo_id, filename=filename, local_dir=local_dir, use_auth_token="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")
-download_model()
 
 setup(
     name='utilityai',
@@ -34,3 +33,5 @@ setup(
     description='UtilityAI package for python',
     url='https://github.com/navid-matinmo/utilityai',
 )
+
+download_model()
