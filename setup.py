@@ -20,7 +20,7 @@ setup(
 def download_model():
     from huggingface_hub import hf_hub_download
     import json
-    local_dir = "utilityai/model"
+    local_dir = "./model"
 
     info_repo_id = "navid-matinmo/utilityai"
     info_filename = "info.json"
