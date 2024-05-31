@@ -1,8 +1,10 @@
 from utilityai.core import infer
 import inspect
 from typing import Callable, Any, Optional
+import os
 
 def message(text: str, conversation: list = [], attachment: Optional[Any] = None, verbose: int = 1):
+    print(os.getcwd())
     
     def pandas_info(df):
         info = {}
