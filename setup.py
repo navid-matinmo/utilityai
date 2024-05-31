@@ -1,5 +1,25 @@
 from setuptools import setup, find_packages
 
+setup(
+    name='utilityai',
+    version='1.0.0',
+    packages=find_packages(),
+    package_data={
+        'utilityai': ["model/*"],
+    },
+    install_requires=[
+        'onnxruntime-genai==0.2.0rc7',
+        'numpy',
+    ],
+    setup_requires=[
+        'huggingface_hub',
+    ],
+    author='Navid Matin Moghaddam',
+    author_email='navid.matinmo@gmail.com',
+    description='UtilityAI package for python',
+    url='https://github.com/navid-matinmo/utilityai',
+)
+
 def get_model_folder():
     import os
     module_dir = os.path.dirname(__file__)
@@ -28,27 +48,6 @@ def download_model():
         hf_hub_download(repo_id=repo_id, filename=filename, local_dir=local_dir, use_auth_token="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")
 
 download_model()
-
-setup(
-    name='utilityai',
-    version='1.0.0',
-    packages=find_packages(),
-    include_package_data=True,
-    package_data={
-        'utilityai': ["model/*"],
-    },
-    install_requires=[
-        'onnxruntime-genai==0.2.0rc7',
-        'numpy',
-    ],
-    setup_requires=[
-        'huggingface_hub',
-    ],
-    author='Navid Matin Moghaddam',
-    author_email='navid.matinmo@gmail.com',
-    description='UtilityAI package for python',
-    url='https://github.com/navid-matinmo/utilityai',
-)
 
 
 
