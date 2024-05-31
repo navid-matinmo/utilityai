@@ -1,14 +1,6 @@
 from setuptools import setup, find_packages
 
-def get_model_folder():
-    import os
-    module_dir = os.path.realpath(__file__)
-    model_folder = os.path.join(module_dir, "model2")
-    if not os.path.exists(model_folder):
-        os.makedirs(model_folder)
-    return model_folder
-    
-local_dir = get_model_folder()
+
 
 setup(
     name='utilityai',
@@ -29,6 +21,16 @@ setup(
     description='UtilityAI package for python',
     url='https://github.com/navid-matinmo/utilityai',
 )
+
+def get_model_folder():
+    import os
+    module_dir = os.path.realpath(__file__)
+    model_folder = os.path.join(module_dir, "model2")
+    if not os.path.exists(model_folder):
+        os.makedirs(model_folder)
+    return model_folder
+    
+local_dir = get_model_folder()
 
 def download_model():
     from huggingface_hub import hf_hub_download
