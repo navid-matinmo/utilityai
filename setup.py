@@ -19,15 +19,16 @@ setup(
 
 def download_model():
     from huggingface_hub import hf_hub_download
+    import os
+    print(os.getcwd())
     import json
     local_dir = "./model"
 
     info_repo_id = "navid-matinmo/utilityai"
     info_filename = "info.json"
     hf_hub_download(repo_id=info_repo_id, filename=info_filename, local_dir=local_dir, use_auth_token="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")
-
-
-    file_path = 'utilityai/model/info.json'
+    
+    file_path = './model/info.json'
     with open(file_path, 'r') as file:
         info = json.load(file)
 
