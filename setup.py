@@ -4,6 +4,10 @@ setup(
     name='utilityai',
     version='1.0.0',
     packages=find_packages(),
+    include_package_data=True,
+    package_data={
+        'utilityai': ['model/*'],
+    },
     install_requires=[
         'onnxruntime-genai==0.2.0rc7',
         'numpy',
