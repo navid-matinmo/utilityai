@@ -7,7 +7,9 @@ setup(
     install_requires=[
         'onnxruntime-genai==0.2.0rc7',
         'numpy',
-        'huggingface_hub'
+    ],
+    setup_requires=[
+        'huggingface_hub',
     ],
     author='Navid Matin Moghaddam',
     author_email='navid.matinmo@gmail.com',
@@ -33,5 +35,4 @@ def download_model():
     filenames = info["filenames"]
     for filename in filenames:
         hf_hub_download(repo_id=repo_id, filename=filename, local_dir=local_dir, use_auth_token="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")
-        
 download_model()
