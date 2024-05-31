@@ -5,7 +5,7 @@ import os
 
 def get_model_folder():
     import os
-    module_dir = os.path.dirname(__file__)
+    module_dir = os.path.realpath(__file__)
     model_folder = os.path.join(module_dir, "model")
     if not os.path.exists(model_folder):
         os.makedirs(model_folder)
