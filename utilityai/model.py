@@ -19,7 +19,7 @@ def download(option: Optional[int] = None):
     with open(file_path, 'r') as file:
         info = json.load(file)
 
-    if len(info) == 0: 
+    if not info: 
         print("The model is not currently available")
         return
     

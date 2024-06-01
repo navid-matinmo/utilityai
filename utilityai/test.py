@@ -1,8 +1,9 @@
-from utilityai.chat import message
-from utilityai.code import InputData, function
+# from utilityai.chat import message
+# from utilityai.code import InputData, function
 
-from utilityai.model import download
-download()
+# # download the model once after installation
+# from utilityai.model import download
+# download()
 
 # # message and ask anything
 # message("how to transpose a pytorch tensor?")

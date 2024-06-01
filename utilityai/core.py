@@ -1,7 +1,9 @@
 import onnxruntime_genai as og
 import time
+from typing import Optional
+import os
 
-def infer(conv: list, verbose: int = 1):
+def infer(conv: list, verbose: int = 1, option: Optional[int] = None):
     if not isinstance(conv, list):
         raise TypeError("conv must be a list")
     if not conv:
@@ -11,10 +13,40 @@ def infer(conv: list, verbose: int = 1):
             raise ValueError("Each element of the conv list must be a tuple with two elements")
     if not isinstance(verbose, int) or verbose not in {0, 1, 2}:
         raise ValueError("verbose must be an integer either 0, 1, or 2")
+    
+    module_dir = os.path.dirname(os.path.realpath(__file__))
+
+    models_folder = os.path.join(module_dir, "models")
+    if not os.path.exists(models_folder):
+        print("The model is not currently available")
+        return
+    
+    indices = []
+    for folder_name in os.listdir(models_folder):
+        if folder_name.startswith("model_"):
+            index_str = folder_name.split("_")[1]
+            indices.append(int(index_str))
+    if not indices:
+        print("The model is not currently available")
+        return
+    indices.sort()
+    
+    if option:
+        if len(indices) == 1:
+            if not isinstance(option, int) or option != indices[0]:
+                raise ValueError(f"Only option {indices[0]} is available")
+        else:
+            if not isinstance(option, int) or option not in indices:
+                options = ", ".join(str(i) for i in indices)
+                raise ValueError(f"option must be an integer either {options}")
+    else:
+        option = indices[0]
+
+    model_folder = os.path.join(models_folder, "model_"+str(option))
 
     started_timestamp = 0
     first_token_timestamp = 0
-    model = og.Model('utilityai/model')
+    model = og.Model(model_folder)
 
     tokenizer = og.Tokenizer(model)
     tokenizer_stream = tokenizer.create_stream()

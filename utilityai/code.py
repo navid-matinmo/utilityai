@@ -211,18 +211,18 @@ class CodeGenerationResult:
                 f'Status: {status}\n'
                 f'Final Function Code:\n{self.final_function_code}')
 
-def function(data: InputData, result: Optional[CodeGenerationResult] = None, max_tries: int = 5, verbose: int = 1) -> CodeGenerationResult:
+def function(data: InputData, result: Optional[CodeGenerationResult] = None, max_tries: int = 5, verbose: int = 1, option: Optional[int] = None) -> CodeGenerationResult:
     if not isinstance(max_tries, int):
         raise TypeError("max_tries must be an integer")
     if not isinstance(verbose, int) or verbose not in {0, 1, 2}:
         raise ValueError("verbose must be an integer either 0, 1, or 2")
     if not isinstance(data, InputData):
-        raise ValueError("data must be an instance of InputData class")
+        raise TypeError("data must be an instance of InputData class")
     if not data.validate_data():
         raise ValueError("Invalid data provided")
     if result:
         if not isinstance(result, CodeGenerationResult):
-            raise ValueError("result must be an instance of CodeGenerationResult class")
+            raise TypeError("result must be an instance of CodeGenerationResult class")
         else:
             result.num_iterations = 0
             result.success = False
@@ -311,7 +311,7 @@ With this result(s):
         else:
             conv.append((introduction + instructions,None))
 
-        raw_response = infer(conv, verbose=1 if verbose==2 else 0)
+        raw_response = infer(conv, verbose=1 if verbose==2 else 0, option=option)
         code_response = extract_python_code(raw_response)
 
         try:
