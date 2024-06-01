@@ -10,7 +10,7 @@ authors = [
 ]
 version = "1.0.0"
 dependencies = [
-  "onnxruntime-genai==0.1.0rc2",
+  "onnxruntime-genai==0.1.0",
   "numpy==1.21.2",
   "huggingface_hub==0.13.0",
 ]
