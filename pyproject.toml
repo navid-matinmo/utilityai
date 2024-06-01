@@ -11,7 +11,7 @@ dependencies = [
   "huggingface_hub==0.23.2",
 ]
 readme = "README.md"
-requires-python = "3.x"
+requires-python = ">=3.0"
 classifiers = [
     "Programming Language :: Python :: 3",
     "License :: OSI Approved :: MIT License",
