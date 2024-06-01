@@ -1,4 +1,3 @@
-# function input output names
 from utilityai.core import infer
 import ast
 import traceback

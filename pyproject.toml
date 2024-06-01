@@ -1,3 +1,7 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
 [project]
 name = "utilityai"
 description = "This package brings language model capabilities into the coding environment, providing a variety of functionalities."
