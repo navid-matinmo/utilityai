@@ -10,9 +10,9 @@ authors = [
 ]
 version = "1.0.0"
 dependencies = [
-  "onnxruntime-genai==0.2.0",
-  "numpy==1.26.4",
-  "huggingface_hub==0.23.2",
+  "onnxruntime-genai==0.1.0rc2",
+  "numpy==0.9.6",
+  "huggingface_hub==0.0.1",
 ]
 readme = "README.md"
 requires-python = ">=3.0"
