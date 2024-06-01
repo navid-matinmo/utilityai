@@ -4,6 +4,7 @@ import ast
 import traceback
 import time
 import keyword
+from typing import Optional
 
 class InputData:
     def __init__(self, function_name="", input_names=None, output_names=None, input_types=None, output_types=None, description="", test_cases=None):
@@ -210,7 +211,7 @@ class CodeGenerationResult:
                 f'Status: {status}\n'
                 f'Final Function Code:\n{self.final_function_code}')
 
-def function(data: InputData, result: CodeGenerationResult = None, max_tries: int = 5, verbose: int = 1) -> CodeGenerationResult:
+def function(data: InputData, result: Optional[CodeGenerationResult] = None, max_tries: int = 5, verbose: int = 1) -> CodeGenerationResult:
     if not isinstance(max_tries, int):
         raise TypeError("max_tries must be an integer")
     if not isinstance(verbose, int) or verbose not in {0, 1, 2}:

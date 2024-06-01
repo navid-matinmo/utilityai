@@ -1,6 +1,6 @@
 from utilityai.core import infer
 import inspect
-from typing import Callable, Any, Optional
+from typing import Any, Optional
 import os
 
 def get_model_folder():
