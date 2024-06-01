@@ -2,23 +2,28 @@ from utilityai.chat import message
 from utilityai.code import InputData, function
 from utilityai.model import download
 
+print("************************************************************")
 print("Download the model once after installation.")
+print("************************************************************")
 download()
-print("************************************************************")
 
+print("************************************************************")
 print("Message and ask anything.")
-message("how to transpose a pytorch tensor?")
 print("************************************************************")
+message("how to transpose a pytorch tensor?")
 
+print("************************************************************")
 print("Chat and have a conversation.")
+print("************************************************************")
 r1, c1 = message("why does mutable and immutable mean")
 print()
 print("-------------- next message --------------")
 print()
 message("give some examples", c1)
-print("************************************************************")
 
+print("************************************************************")
 print("Chat about a function.")
+print("************************************************************")
 def list_sum(numbers):
     return sum(numbers)
 r1, c1 = message("what does this do?", attachment=list_sum)
@@ -26,9 +31,10 @@ print()
 print("-------------- next message --------------")
 print()
 message("return min and max of numbers too", c1)
-print("************************************************************")
 
+print("************************************************************")
 print("Chat about a numpy array.")
+print("************************************************************")
 import numpy as np
 array = np.array([[1, 2, 3, 4], 
                   [5, 6, 7, 8], 
@@ -38,9 +44,10 @@ print()
 print("-------------- next message --------------")
 print()
 message("what about age?", c1)
-print("************************************************************")
 
+print("************************************************************")
 print("Chat about a pandas dataframe.")
+print("************************************************************")
 import pandas as pd
 data = {
     'Name': ['Alice', 'Bob', 'Charlie', 'David', 'Eve'],
@@ -55,9 +62,10 @@ print()
 print("-------------- next message --------------")
 print()
 message("how to get average salary of each department?", c1)
-print("************************************************************")
 
+print("************************************************************")
 print("Chat about a pytorch tensor.")
+print("************************************************************")
 import torch
 tensor = torch.tensor([[1, 2, 3], [4, 5, 6]])
 r1, c1 = message("how to transpose this tensor", attachment=tensor)
@@ -65,16 +73,17 @@ print()
 print("-------------- next message --------------")
 print()
 message("how to get the size of the resulting tensor", c1)
-print("************************************************************")
 
-# function generation in an interactive way. Calling data() and then give function info.
+print("************************************************************")
 print("Generate a function interactively by calling data() first, then provide function information.")
+print("************************************************************")
 data = InputData()
 data()
 function(data)
-print("************************************************************")
 
+print("************************************************************")
 print("Generate a function by setting data within the code.")
+print("************************************************************")
 data = InputData()
 data_dict = {
     'function_name': 'prime_number_checker',
@@ -91,9 +100,10 @@ data_dict = {
 }
 data.set_data(data_dict['function_name'], data_dict['input_names'], data_dict['output_names'], data_dict['input_types'], data_dict['output_types'], data_dict['description'], data_dict['test_cases'])
 function(data)
-print("************************************************************")
 
+print("************************************************************")
 print("Generate a function and provide a comment on the result for guided generation.")
+print("************************************************************")
 data = InputData()
 data_dict = {
     'function_name': 'vague_function',
@@ -113,4 +123,3 @@ print("-------------- comment --------------")
 print()
 res.comment = "actually the smaller number must be subtracted from the larger one"
 function(data, res)
-print("************************************************************")
