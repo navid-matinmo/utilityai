@@ -7,20 +7,18 @@ def download(option: Optional[int] = None):
 
     module_dir = os.path.dirname(os.path.realpath(__file__))
 
-    if os.name == "nt":
-        module_dir = "\\\\?\\" + os.path.abspath(module_dir)
-
     models_folder = os.path.join(module_dir, "models")
-
-    if os.name == "nt":
-        models_folder = "\\\\?\\" + os.path.abspath(models_folder)
-    
     if not os.path.exists(models_folder):
         os.makedirs(models_folder)
 
+    if os.name == "nt":
+        models_folder_hf = "\\\\?\\" + os.path.abspath(models_folder)
+    else:
+        models_folder_hf = models_folder
+
     info_repo_id = "navid-matinmo/utilityai"
     info_filename = "info.json"
-    hf_hub_download(repo_id=info_repo_id, filename=info_filename, local_dir=models_folder, use_auth_token="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")
+    hf_hub_download(repo_id=info_repo_id, filename=info_filename, local_dir=models_folder_hf, use_auth_token="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")
     
     file_path = os.path.join(models_folder, "info.json")
     with open(file_path, 'r') as file:
@@ -42,14 +40,15 @@ def download(option: Optional[int] = None):
         option = 1
 
     model_folder = os.path.join(models_folder, "model_"+str(option))
-
-    if os.name == "nt":
-        model_folder = "\\\\?\\" + os.path.abspath(model_folder)
-    
     if not os.path.exists(model_folder):
         os.makedirs(model_folder)
+
+    if os.name == "nt":
+        model_folder_hf = "\\\\?\\" + os.path.abspath(model_folder)
+    else:
+        model_folder_hf = model_folder
 
     repo_id = info[option-1]["repo_id"]
     filenames = info[option-1]["filenames"]
     for filename in filenames:
-        hf_hub_download(repo_id=repo_id, filename=filename, local_dir=model_folder, use_auth_token="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")
+        hf_hub_download(repo_id=repo_id, filename=filename, local_dir=model_folder_hf, use_auth_token="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")
