@@ -1,32 +1,42 @@
-[build-system]
-requires = ["hatchling"]
-build-backend = "hatchling.build"
-
-[project]
+[tool.poetry]
 name = "utilityai"
 description = "This package brings language model capabilities into the coding environment, providing a variety of functionalities."
-authors = [
-  { name="Navid Matin Moghaddam", email="navid.matinmo@gmail.com" },
-]
 version = "1.0.0"
-dependencies = [
-  "onnxruntime-genai>=0.2.0; sys_platform == 'win32'",
-  "onnxruntime-genai>=0.2.0; sys_platform == 'linux'",
-  "onnxruntime-genai>=0.3.0rc1; sys_platform != 'win32' and sys_platform != 'linux'",
-  "numpy>=1.21.2",
-  "huggingface_hub>=0.13.0",
-]
+authors = ["Navid Matin Moghaddam <navid.matinmo@gmail.com>"]
 readme = "README.md"
-requires-python = ">=3.0"
+homepage = "https://github.com/navid-matinmo/utilityai"
+repository = "https://github.com/navid-matinmo/utilityai"
+documentation = "https://github.com/navid-matinmo/utilityai"
+keywords = ["LLM", "AI"]
+license = "MIT"
 classifiers = [
     "Programming Language :: Python :: 3",
     "License :: OSI Approved :: MIT License",
     "Operating System :: OS Independent",
 ]
+requires-python = ">=3.0"
+include = ["LICENSE"]
 
-[project.urls]
-Homepage = "https://github.com/navid-matinmo/utilityai"
-Issues = "https://github.com/navid-matinmo/utilityai/issues"
+[tool.poetry.dependencies]
+python = ">=3.0"
+onnxruntime-genai = [
+    { version = ">=0.2.0", markers = "sys_platform == 'win32'" },
+    { version = ">=0.2.0", markers = "sys_platform == 'linux'" },
+    { version = ">=0.3.0rc1", markers = "sys_platform != 'win32' and sys_platform != 'linux'" }
+]
+numpy = ">=1.21.2"
+huggingface_hub = ">=0.13.0"
+
+[tool.poetry.urls]
+homepage = "https://github.com/navid-matinmo/utilityai"
+repository = "https://github.com/navid-matinmo/utilityai"
+documentation = "https://github.com/navid-matinmo/utilityai"
+issues = "https://github.com/navid-matinmo/utilityai/issues"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
+
 
 
 
