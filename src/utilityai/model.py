@@ -7,7 +7,14 @@ def download(option: Optional[int] = None):
 
     module_dir = os.path.dirname(os.path.realpath(__file__))
 
+    if os.name == "nt":
+        module_dir = "\\\\?\\" + os.path.abspath(module_dir)
+
     models_folder = os.path.join(module_dir, "models")
+
+    if os.name == "nt":
+        models_folder = "\\\\?\\" + os.path.abspath(models_folder)
+    
     if not os.path.exists(models_folder):
         os.makedirs(models_folder)
 
@@ -35,11 +42,12 @@ def download(option: Optional[int] = None):
         option = 1
 
     model_folder = os.path.join(models_folder, "model_"+str(option))
-    if not os.path.exists(model_folder):
-        os.makedirs(model_folder)
 
     if os.name == "nt":
         model_folder = "\\\\?\\" + os.path.abspath(model_folder)
+    
+    if not os.path.exists(model_folder):
+        os.makedirs(model_folder)
 
     repo_id = info[option-1]["repo_id"]
     filenames = info[option-1]["filenames"]
