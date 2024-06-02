@@ -20,7 +20,7 @@ include = ["LICENSE"]
 [tool.poetry.dependencies]
 python = ">=3.0"
 onnxruntime-genai = [
-    { version = ">=0.3.0rc1", markers = "sys_platform == 'win32'" },
+    { version = ">=0.2.0", markers = "sys_platform == 'win32'" },
     { version = ">=0.2.0", markers = "sys_platform == 'linux'" },
     { version = ">=0.3.0rc1", markers = "sys_platform != 'win32' and sys_platform != 'linux'" }
 ]
