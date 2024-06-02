@@ -10,9 +10,9 @@ authors = [
 ]
 version = "1.0.0"
 dependencies = [
-  'onnxruntime-genai>=0.3.0rc1; sys_platform == "darwin"',
-  'onnxruntime-genai>=0.2.0; sys_platform == "win32"',
-  'onnxruntime-genai>=0.2.0; sys_platform == "linux"',
+  "onnxruntime-genai>=0.2.0; sys_platform == 'win32'",
+  "onnxruntime-genai>=0.2.0; sys_platform == 'linux'",
+  "onnxruntime-genai>=0.3.0rc1",
   "numpy>=1.21.2",
   "huggingface_hub>=0.13.0",
 ]
