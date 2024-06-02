@@ -41,4 +41,4 @@ def download(option: Optional[int] = None):
     repo_id = info[option-1]["repo_id"]
     filenames = info[option-1]["filenames"]
     for filename in filenames:
-        hf_hub_download(repo_id=repo_id, filename=filename, local_dir=model_folder, use_auth_token="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")
+        hf_hub_download(repo_id=repo_id, filename=filename, local_dir=model_folder, use_auth_token="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", local_dir_use_symlinks=True)
