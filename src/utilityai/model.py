@@ -38,7 +38,10 @@ def download(option: Optional[int] = None):
     if not os.path.exists(model_folder):
         os.makedirs(model_folder)
 
+    if os.name == "nt":
+        model_folder = "\\\\?\\" + os.path.abspath(model_folder)
+
     repo_id = info[option-1]["repo_id"]
     filenames = info[option-1]["filenames"]
     for filename in filenames:
-        hf_hub_download(repo_id=repo_id, filename=filename, local_dir=model_folder, use_auth_token="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", legacy_cache_layout=True)
+        hf_hub_download(repo_id=repo_id, filename=filename, local_dir=model_folder, use_auth_token="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")
