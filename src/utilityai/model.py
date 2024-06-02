@@ -18,7 +18,7 @@ def download(option: Optional[int] = None):
 
     info_repo_id = "navid-matinmo/utilityai"
     info_filename = "info.json"
-    hf_hub_download(repo_id=info_repo_id, filename=info_filename, local_dir=models_folder_hf, use_auth_token="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")
+    hf_hub_download(repo_id=info_repo_id, filename=info_filename, local_dir=models_folder_hf)
     
     file_path = os.path.join(models_folder, "info.json")
     with open(file_path, 'r') as file:
@@ -51,4 +51,4 @@ def download(option: Optional[int] = None):
     repo_id = info[option-1]["repo_id"]
     filenames = info[option-1]["filenames"]
     for filename in filenames:
-        hf_hub_download(repo_id=repo_id, filename=filename, local_dir=model_folder_hf, use_auth_token="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")
+        hf_hub_download(repo_id=repo_id, filename=filename, local_dir=model_folder_hf)
