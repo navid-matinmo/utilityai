@@ -20,7 +20,7 @@ pip install utilityai
 
 ## quick start
 
-Download the model once after installation:
+Download the model once after installation
 ```
 from utilityai.model import download
 download()
@@ -28,44 +28,49 @@ download()
 
 Message and ask anything
 ```
-message("how to transpose a pytorch tensor?")
+from utilityai.chat import message
+message("How do you transpose a PyTorch tensor?")
 ```
 
 Chat and have a conversation
 ```
-r1, c1 = message("why does mutable and immutable mean")
+from utilityai.chat import message
+r1, c1 = message("What do mutable and immutable mean?")
 print()
 print("-------------- next message --------------")
 print()
-message("give some examples", c1)
+message("Give some examples.", c1)
 ```
 
 Chat about a function
 ```
+from utilityai.chat import message
 def list_sum(numbers):
     return sum(numbers)
-r1, c1 = message("what does this do?", attachment=list_sum)
+r1, c1 = message("What does this do?", attachment=list_sum)
 print()
 print("-------------- next message --------------")
 print()
-message("return min and max of numbers too", c1)
+message("Return the minimum and maximum of numbers as well.", c1)
 ```
 
 Chat about a numpy array
 ```
+from utilityai.chat import message
 import numpy as np
 array = np.array([[1, 2, 3, 4], 
                   [5, 6, 7, 8], 
                   [9, 10, 11, 12]])
-r1, c1 = message("each row is salaries of a person. how to get average salary of each person in an array", attachment=array)
+r1, c1 = message("Each row represents the salary of a person. How do I calculate the average salary of each person in an array?", attachment=array)
 print()
 print("-------------- next message --------------")
 print()
-message("what about age?", c1)
+message("How do I calculate the average salary of these people for each year in an array?", c1)
 ```
 
 Chat about a pandas dataframe
 ```
+from utilityai.chat import message
 import pandas as pd
 data = {
     'Name': ['Alice', 'Bob', 'Charlie', 'David', 'Eve'],
@@ -75,26 +80,28 @@ data = {
     'Joining Date': pd.to_datetime(['2020-01-15', '2019-06-23', '2021-03-01', '2018-11-15', '2020-08-30'])
 }
 df = pd.DataFrame(data)
-r1, c1 = message("write code to get average of salary", attachment=df)
+r1, c1 = message("How to calculate the average salary?", attachment=df)
 print()
 print("-------------- next message --------------")
 print()
-message("how to get average salary of each department?", c1)
+message("How to calculate the average salary for each department?", c1)
 ```
 
 Chat about a pytorch tensor
 ```
+from utilityai.chat import message
 import torch
 tensor = torch.tensor([[1, 2, 3], [4, 5, 6]])
-r1, c1 = message("how to transpose this tensor", attachment=tensor)
+r1, c1 = message("How to transpose this tensor?", attachment=tensor)
 print()
 print("-------------- next message --------------")
 print()
-message("how to get the size of the resulting tensor", c1)
+message("How to determine the size of the resulting tensor?", c1)
 ```
 
 Generate a function interactively by calling data() first, then provide function information
 ```
+from utilityai.code import InputData, function
 data = InputData()
 data()
 function(data)
@@ -102,6 +109,7 @@ function(data)
 
 Generate a function by setting data within the code
 ```
+from utilityai.code import InputData, function
 data = InputData()
 data_dict = {
     'function_name': 'prime_number_checker',
@@ -109,7 +117,7 @@ data_dict = {
     'input_types': ['int'],
     'output_names': ['is_prime'],
     'output_types': ['bool'],
-    'description': "function that checks if a given number is a prime number",
+    'description': "A function to check if a given number is prime.",
     'test_cases': [
         {'inputs': [5], 'outputs': [True]},
         {'inputs': [10], 'outputs': [False]},
@@ -122,6 +130,7 @@ function(data)
 
 Generate a function and provide a comment on the result for guided generation
 ```
+from utilityai.code import InputData, function
 data = InputData()
 data_dict = {
     'function_name': 'vague_function',
@@ -129,7 +138,7 @@ data_dict = {
     'input_types': ['int', 'int'],
     'output_names': ['subtract'],
     'output_types': ['int'],
-    'description': "function that subtracts two numbers",
+    'description': "A function to subtract two numbers.",
     'test_cases': [
         {'inputs': [1,2], 'outputs': [1]}
     ]
@@ -139,6 +148,6 @@ res = function(data, max_tries=1)
 print()
 print("-------------- comment --------------")
 print()
-res.comment = "actually the smaller number must be subtracted from the larger one"
+res.comment = "A function that subtracts the smaller number from the larger one."
 function(data, res)
 ```
