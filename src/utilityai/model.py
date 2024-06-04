@@ -19,7 +19,9 @@ def download(option: Optional[int] = None):
     info_repo_id = "navid-matinmo/utilityai"
     info_filename = "info.json"
     hf_hub_download(repo_id=info_repo_id, filename=info_filename, local_dir=models_folder_hf)
-    
+    info_filename = "config.json"
+    hf_hub_download(repo_id=info_repo_id, filename=info_filename, local_dir=models_folder_hf)
+
     file_path = os.path.join(models_folder, "info.json")
     with open(file_path, 'r') as file:
         info = json.load(file)
