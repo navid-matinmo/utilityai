@@ -12,6 +12,8 @@ This package brings language model capabilities into the coding environment, pro
 - Generate a function by setting data within the code
 - Generate a function and provide a comment on the result for guided generation
 
+Function generation feature iteratively builds and refines functions by evaluating them against predefined test cases.
+
 ## install
 
 ```
