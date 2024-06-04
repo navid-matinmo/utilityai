@@ -100,7 +100,7 @@ def infer(conv: list, verbose: int = 1, option: Optional[int] = None):
     run_time = time.time() - first_token_timestamp
     
     if verbose != 0: 
-        print()
+        print("\n\n")
     if verbose == 2:
         print(f"Prompt length: {len(input_tokens)}, New tokens: {len(new_tokens)}, Time to first: {(prompt_time):.2f}s, Prompt tokens per second: {len(input_tokens)/prompt_time:.2f} tps, New tokens per second: {len(new_tokens)/run_time:.2f} tps")
     
