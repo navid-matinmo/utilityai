@@ -79,7 +79,7 @@ def infer(conv: list, verbose: int = 1, option: Optional[int] = None):
     new_tokens = []
 
     if verbose != 0:
-        print("AI assistant: \n", end='', flush=True)
+        print("utilityai: \n", end='', flush=True)
 
     try:
         while not generator.is_done():
@@ -90,10 +90,7 @@ def infer(conv: list, verbose: int = 1, option: Optional[int] = None):
                 first = False
             new_token = generator.get_next_tokens()[0]
             if verbose != 0:
-                if new_tokens:
-                    print(tokenizer_stream.decode(new_token), end='', flush=True)
-                else:
-                    print(tokenizer_stream.decode(new_token)[1:], end='', flush=True)
+                print(tokenizer_stream.decode(new_token), end='', flush=True)
             new_tokens.append(new_token)
     except KeyboardInterrupt:
         print("Keyboard interrupt received. Exiting...")
