@@ -16,9 +16,6 @@ print("************************************************************")
 print("Chat and have a conversation")
 print("************************************************************")
 r1, c1 = message("What do mutable and immutable mean?")
-print()
-print("-------------- next message --------------")
-print()
 message("Give more examples.", c1)
 
 print("************************************************************")
@@ -27,9 +24,6 @@ print("************************************************************")
 def list_sum(numbers):
     return sum(numbers)
 r1, c1 = message("What does this do?", attachment=list_sum)
-print()
-print("-------------- next message --------------")
-print()
 message("Return the minimum and maximum values of the numbers instead.", c1)
 
 print("************************************************************")
@@ -40,9 +34,6 @@ array = np.array([[1, 2, 3, 4],
                   [5, 6, 7, 8], 
                   [9, 10, 11, 12]])
 r1, c1 = message("Each row represents the salary of a person. How do I calculate the average salary of each person in another array?", attachment=array)
-print()
-print("-------------- next message --------------")
-print()
 message("How do I calculate the average salary of these people for each year in an array?", c1)
 
 print("************************************************************")
@@ -58,9 +49,6 @@ data = {
 }
 df = pd.DataFrame(data)
 r1, c1 = message("How to calculate the average salary?", attachment=df)
-print()
-print("-------------- next message --------------")
-print()
 message("How to calculate the average salary for each department?", c1)
 
 print("************************************************************")
@@ -69,9 +57,6 @@ print("************************************************************")
 import torch
 tensor = torch.tensor([[1, 2, 3], [4, 5, 6]])
 r1, c1 = message("How to transpose this tensor?", attachment=tensor)
-print()
-print("-------------- next message --------------")
-print()
 message("How to determine the size of the resulting tensor?", c1)
 
 print("************************************************************")
@@ -118,8 +103,5 @@ data_dict = {
 }
 data.set_data(data_dict['function_name'], data_dict['input_names'], data_dict['output_names'], data_dict['input_types'], data_dict['output_types'], data_dict['description'], data_dict['test_cases'])
 res = function(data, max_tries=1)
-print()
-print("-------------- comment --------------")
-print()
 res.comment = "A function that subtracts the smaller number from the larger one."
 function(data, res)
