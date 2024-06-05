@@ -1,7 +1,7 @@
 [tool.poetry]
 name = "utilityai"
 description = "This package brings language model capabilities into the coding environment, providing a variety of functionalities."
-version = "1.0.0"
+version = "1.0.1"
 authors = ["Navid Matin Moghaddam <navid.matinmo@gmail.com>"]
 readme = "README.md"
 homepage = "https://github.com/navid-matinmo/utilityai"
@@ -27,9 +27,6 @@ numpy = ">=1.21.2"
 huggingface_hub = ">=0.13.0"
 
 [tool.poetry.urls]
-homepage = "https://github.com/navid-matinmo/utilityai"
-repository = "https://github.com/navid-matinmo/utilityai"
-documentation = "https://github.com/navid-matinmo/utilityai"
 issues = "https://github.com/navid-matinmo/utilityai/issues"
 
 [build-system]
