@@ -16,7 +16,7 @@ print("************************************************************")
 print("Chat and have a conversation")
 print("************************************************************")
 r1, c1 = message("What do mutable and immutable mean?")
-message("Give more examples.", c1)
+message("Give more examples.", c1);
 
 print("************************************************************")
 print("Chat about a function")
@@ -24,7 +24,7 @@ print("************************************************************")
 def list_sum(numbers):
     return sum(numbers)
 r1, c1 = message("What does this do?", attachment=list_sum)
-message("Return the minimum and maximum values of the numbers instead.", c1)
+message("Return the minimum and maximum values of the numbers instead.", c1);
 
 print("************************************************************")
 print("Chat about a numpy array")
@@ -34,7 +34,7 @@ array = np.array([[1, 2, 3, 4],
                   [5, 6, 7, 8], 
                   [9, 10, 11, 12]])
 r1, c1 = message("Each row represents the salary of a person. How do I calculate the average salary of each person in another array?", attachment=array)
-message("How do I calculate the average salary of these people for each year in an array?", c1)
+message("How do I calculate the average salary of these people for each year in an array?", c1);
 
 print("************************************************************")
 print("Chat about a pandas dataframe")
@@ -49,7 +49,7 @@ data = {
 }
 df = pd.DataFrame(data)
 r1, c1 = message("How to calculate the average salary?", attachment=df)
-message("How to calculate the average salary for each department?", c1)
+message("How to calculate the average salary for each department?", c1);
 
 print("************************************************************")
 print("Chat about a pytorch tensor")
@@ -57,14 +57,14 @@ print("************************************************************")
 import torch
 tensor = torch.tensor([[1, 2, 3], [4, 5, 6]])
 r1, c1 = message("How to transpose this tensor?", attachment=tensor)
-message("How to determine the size of the resulting tensor?", c1)
+message("How to determine the size of the resulting tensor?", c1);
 
 print("************************************************************")
 print("Generate a function interactively by calling data() first, then provide function information")
 print("************************************************************")
 data = InputData()
 data()
-function(data)
+function(data);
 
 print("************************************************************")
 print("Generate a function by setting data within the code")
@@ -84,7 +84,7 @@ data_dict = {
     ]
 }
 data.set_data(data_dict['function_name'], data_dict['input_names'], data_dict['output_names'], data_dict['input_types'], data_dict['output_types'], data_dict['description'], data_dict['test_cases'])
-function(data)
+function(data);
 
 print("************************************************************")
 print("Generate a function and provide a comment on the result for guided generation")
@@ -104,4 +104,4 @@ data_dict = {
 data.set_data(data_dict['function_name'], data_dict['input_names'], data_dict['output_names'], data_dict['input_types'], data_dict['output_types'], data_dict['description'], data_dict['test_cases'])
 res = function(data, max_tries=1)
 res.comment = "A function that subtracts the smaller number from the larger one."
-function(data, res)
+function(data, res);
