@@ -14,6 +14,11 @@ This package brings language model capabilities into the coding environment, pro
 
 Function generation feature iteratively builds and refines functions by evaluating them against predefined test cases.
 
+This package leverages a local LLM:
+
+- Your code is not shared with any external service provider, guaranteeing complete privacy during the code generation process.
+- Ensuring that your code generation process remains entirely within your own environment, without the need for a network connection.
+
 ## install
 
 ```
