@@ -17,7 +17,7 @@ Function generation feature iteratively builds and refines functions by evaluati
 This package utilizes a local private LLM:
 
 - Your code is not shared with any external service provider, guaranteeing complete privacy during the generation process.
-- Ensuring that your code generation process remains entirely within your own environment, without the need for a network connection.
+- Ensuring that your generation process remains entirely within your own environment, without the need for a network connection.
 
 ## install
 
